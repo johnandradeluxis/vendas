@@ -3,225 +3,863 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Renda Extra com YouTube Sem Aparecer Usando IA</title>
-  <meta
-    name="description"
-    content="Aprenda a criar vídeos de música automatizados com ChatGPT, Suno e CapCut e monetize no YouTube sem aparecer."
-  >
-  <meta property="og:title" content="Renda Extra com YouTube Sem Aparecer Usando IA">
-  <meta property="og:description" content="Crie vídeos de música automatizados com ChatGPT, Suno e CapCut e comece a monetizar mesmo começando do zero.">
+  <title>Seu Canal de Música no YouTube — Criado por IA, Monetizado por Você</title>
+  <meta name="description" content="Aprenda a criar um canal de música no YouTube com IA, sem aparecer, sem gravar e sem estúdio. Acesso imediato por R$37.">
+  <meta property="og:title" content="Seu Canal de Música no YouTube — Criado por IA, Monetizado por Você">
+  <meta property="og:description" content="Sem aparecer. Sem gravar. Sem estúdio. Só você, a IA e o método certo. R$37.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vendas-rho-three.vercel.app/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080810;
+      --bg-soft: #0e0e1a;
+      --panel: #12121f;
+      --line: rgba(240, 192, 64, 0.16);
+      --line-strong: rgba(240, 192, 64, 0.34);
+      --gold: #f0c040;
+      --orange: #ff6b35;
+      --text: #f0eeea;
+      --muted: #7a7a8a;
+      --radius: 8px;
+      --max: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      mix-blend-mode: screen;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      padding: 100px 24px;
+    }
+
+    .container {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 38px;
+      padding: 0 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: rgba(240, 192, 64, 0.06);
+      color: var(--text);
+      font-family: "Space Mono", monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      animation: fadeDown 0.7s ease both;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 rgba(240, 192, 64, 0.6);
+      animation: pulse 1.8s infinite;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      padding-bottom: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 720px;
+      height: 720px;
+      left: 50%;
+      top: 70px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(240, 192, 64, 0.22) 0%, rgba(240, 192, 64, 0.08) 28%, rgba(240, 192, 64, 0) 68%);
+      filter: blur(6px);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 28px;
+      align-items: end;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+    }
+
+    .hero-copy > *:nth-child(2) {
+      animation: fadeDown 0.7s ease 0.1s both;
+    }
+
+    .hero-copy > *:nth-child(3) {
+      animation: fadeDown 0.7s ease 0.2s both;
+    }
+
+    .hero-copy > *:nth-child(4) {
+      animation: fadeDown 0.7s ease 0.3s both;
+    }
+
+    .hero-copy > *:nth-child(5) {
+      animation: fadeDown 0.7s ease 0.4s both;
+    }
+
+    .hero-title {
+      margin: 18px 0 0;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(4rem, 12vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title .line {
+      display: block;
+    }
+
+    .hero-title .line-gold {
+      color: var(--gold);
+    }
+
+    .hero-title .line-outline {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(240, 238, 234, 0.75);
+      text-stroke: 1px rgba(240, 238, 234, 0.75);
+    }
+
+    .hero-subtitle {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: var(--text);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+    }
+
+    .hero-subtitle strong {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .cta-button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 26px;
+      border: 1px solid rgba(240, 192, 64, 0.55);
+      border-radius: 8px;
+      background: linear-gradient(180deg, var(--gold), #ddab28);
+      color: #14110a;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      overflow: hidden;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      box-shadow: 0 0 0 rgba(240, 192, 64, 0);
+    }
+
+    .cta-button::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+      transition: left 380ms ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(240, 192, 64, 0.2);
+    }
+
+    .cta-button:hover::after {
+      left: 140%;
+    }
+
+    .hero-proof {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .hero-stage {
+      margin-top: 14px;
+      display: grid;
+      gap: 2px;
+      padding: 2px;
+      background: rgba(240, 192, 64, 0.08);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .hero-stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2px;
+    }
+
+    .stage-card {
+      min-height: 126px;
+      padding: 18px;
+      background: var(--bg-soft);
+      border-radius: 6px;
+    }
+
+    .stage-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-family: "Space Mono", monospace;
+      font-size: 0.78rem;
+    }
+
+    .stage-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .stage-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .section-kicker {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-family: "Space Mono", monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.4rem, 8vw, 4.6rem);
+      line-height: 0.94;
+      letter-spacing: 0.03em;
+    }
+
+    .section-copy {
+      max-width: 720px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .grid-shell {
+      margin-top: 28px;
+      display: grid;
+      gap: 2px;
+      padding: 2px;
+      background: rgba(240, 192, 64, 0.08);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .pain-grid,
+    .lesson-grid,
+    .bonus-grid,
+    .audience-layout,
+    .opportunity-grid {
+      display: grid;
+      gap: 2px;
+    }
+
+    .card {
+      position: relative;
+      min-height: 100%;
+      padding: 24px;
+      background: var(--bg-soft);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .pain-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .pain-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .pain-number {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 56px;
+      line-height: 1;
+      color: rgba(240, 192, 64, 0.12);
+      pointer-events: none;
+    }
+
+    .opportunity-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: stretch;
+    }
+
+    .opportunity-panel {
+      padding: 28px;
+      background: var(--bg-soft);
+      border-radius: 6px;
+    }
+
+    .opportunity-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .opportunity-list div {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--text);
+    }
+
+    .opportunity-list span {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .chart-box {
+      position: relative;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 320px;
+      padding: 24px 20px 20px;
+      background:
+        linear-gradient(180deg, rgba(240, 192, 64, 0.04), rgba(240, 192, 64, 0)),
+        var(--panel);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .chart-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(240, 192, 64, 0.12) 1px, transparent 1px) 0 0 / 100% 25%,
+        linear-gradient(to right, rgba(240, 192, 64, 0.05) 1px, transparent 1px) 0 0 / 25% 100%;
+      pointer-events: none;
+    }
+
+    .bar-wrap {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: end;
+      gap: 12px;
+      height: 100%;
+    }
+
+    .bar {
+      width: 100%;
+      max-width: 54px;
+      border-radius: 6px 6px 0 0;
+      transform-origin: bottom;
+      animation: growBar 1.2s ease both;
+      background: linear-gradient(180deg, var(--gold), var(--orange));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+
+    .bar-1 { height: 34%; animation-delay: 0.05s; }
+    .bar-2 { height: 49%; animation-delay: 0.12s; }
+    .bar-3 { height: 66%; animation-delay: 0.19s; }
+    .bar-4 { height: 88%; animation-delay: 0.26s; }
+
+    .bar-label {
+      color: var(--muted);
+      font-family: "Space Mono", monospace;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+    }
+
+    .lesson-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lesson-card {
+      border-left: 2px solid rgba(240, 192, 64, 0.4);
+    }
+
+    .lesson-index,
+    .plus-icon,
+    .price-badge,
+    .micro-badge {
+      font-family: "Space Mono", monospace;
+    }
+
+    .lesson-index {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 0.82rem;
+    }
+
+    .audience-layout {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stack {
+      display: grid;
+      gap: 2px;
+      padding: 2px;
+      background: rgba(240, 192, 64, 0.08);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .stack-head {
+      padding: 24px 24px 12px;
+      background: var(--bg-soft);
+      border-radius: 6px 6px 0 0;
+    }
+
+    .stack-title {
+      margin: 0;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      letter-spacing: 0.03em;
+    }
+
+    .stack-grid {
+      display: grid;
+      gap: 2px;
+    }
+
+    .plus-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(240, 192, 64, 0.28);
+      border-radius: 50%;
+      color: var(--gold);
+      background: rgba(240, 192, 64, 0.06);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .bonus-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .bonus-card {
+      border: 1px solid rgba(240, 192, 64, 0.18);
+    }
+
+    .offer {
+      background: #0a0a14;
+    }
+
+    .offer-shell {
+      display: grid;
+      gap: 2px;
+      padding: 2px;
+      background: rgba(240, 192, 64, 0.12);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+    }
+
+    .offer-main {
+      padding: 30px;
+      background:
+        linear-gradient(180deg, rgba(240, 192, 64, 0.04), rgba(240, 192, 64, 0)),
+        #10101b;
+      border-radius: 6px;
+    }
+
+    .offer-top {
+      display: grid;
+      gap: 18px;
+    }
+
+    .price-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .price-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 0 14px;
+      border: 1px solid rgba(240, 192, 64, 0.34);
+      border-radius: 6px;
+      background: rgba(240, 192, 64, 0.08);
+      color: var(--gold);
+      font-size: 0.92rem;
+    }
+
+    .price-box {
+      margin-top: 6px;
+      padding: 22px;
+      border: 1px solid rgba(240, 192, 64, 0.38);
+      border-radius: 8px;
+      background: rgba(240, 192, 64, 0.05);
+    }
+
+    .price-compare {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .price-highlight {
+      margin: 14px 0 0;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(3.2rem, 10vw, 5.4rem);
+      line-height: 0.9;
+      color: var(--gold);
+      letter-spacing: 0.03em;
+    }
+
+    .offer-proof {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .cta-row {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .micro-badge {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(240, 192, 64, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(240, 192, 64, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(240, 192, 64, 0);
+      }
+    }
+
+    @keyframes growBar {
+      from {
+        transform: scaleY(0);
+      }
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .pain-grid,
+      .bonus-grid,
+      .lesson-grid,
+      .audience-layout,
+      .opportunity-grid,
+      .hero-stage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 96px;
+      }
+
+      .section {
+        padding: 84px 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: clamp(3.2rem, 18vw, 5.2rem);
+      }
+
+      .section-title,
+      .stack-title {
+        font-size: clamp(2.2rem, 12vw, 3.6rem);
+      }
+
+      .cta-button {
+        width: 100%;
+      }
+
+      .hero-actions,
+      .cta-row {
+        align-items: stretch;
+      }
+
+      .card,
+      .offer-main,
+      .opportunity-panel,
+      .stage-card,
+      .stack-head {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="page-shell">
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">Método prático com IA</span>
-        <h1>Renda Extra com YouTube Sem Aparecer Usando IA</h1>
-        <p class="hero-subtitle">
-          Crie vídeos de música automatizados com ChatGPT, Suno e CapCut e comece a monetizar mesmo começando do zero.
+  <main class="page">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span>Método Validado · IA + YouTube</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="line">Seu Canal de Música</span>
+            <span class="line line-gold">no YouTube</span>
+            <span class="line line-outline">Criado por IA, Monetizado por Você</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Sem aparecer. Sem gravar. Sem estúdio. Só você, a IA e o método certo.
+            <strong>R$37 — menos que um delivery.</strong>
+          </p>
+
+          <div class="hero-actions">
+            <a class="cta-button" href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer">Quero Começar por R$37 Agora →</a>
+            <div class="hero-proof">✓ Acesso imediato &nbsp;&nbsp; ✓ Bônus inclusos &nbsp;&nbsp; ✓ Garantia de 7 dias</div>
+          </div>
+        </div>
+
+        <div class="hero-stage">
+          <div class="hero-stage-grid">
+            <article class="stage-card">
+              <span class="stage-label">PASSO 01</span>
+              <strong>Escolha um nicho com demanda</strong>
+              <p>Entre mais rápido no jogo sem desperdiçar tempo com ideias fracas.</p>
+            </article>
+            <article class="stage-card">
+              <span class="stage-label">PASSO 02</span>
+              <strong>Gere músicas com IA em minutos</strong>
+              <p>Use ferramentas simples para produzir conteúdo sem estúdio e sem voz.</p>
+            </article>
+            <article class="stage-card">
+              <span class="stage-label">PASSO 03</span>
+              <strong>Publique e escale com método</strong>
+              <p>Transforme consistência em visualização, crescimento e monetização.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-kicker">Você já se sentiu assim?</p>
+        <h2 class="section-title">Você já tentou ganhar dinheiro online e travou assim...</h2>
+
+        <div class="grid-shell">
+          <div class="pain-grid">
+            <article class="card pain-card">
+              <div class="pain-number">01</div>
+              <h3>Assistiu mil vídeos grátis e ainda não saiu do zero</h3>
+              <p>Muito conteúdo solto, pouca direção e a sensação de estar sempre começando de novo.</p>
+            </article>
+            <article class="card pain-card">
+              <div class="pain-number">02</div>
+              <h3>Tem ideia, mas trava na hora de executar</h3>
+              <p>Você até enxerga uma oportunidade, mas não consegue transformar isso em ação concreta.</p>
+            </article>
+            <article class="card pain-card">
+              <div class="pain-number">03</div>
+              <h3>Tentou outros métodos e sentiu que era complicado demais</h3>
+              <p>Ferramenta demais, teoria demais, promessas demais e clareza de menos.</p>
+            </article>
+            <article class="card pain-card">
+              <div class="pain-number">04</div>
+              <h3>Achou que ia precisar aparecer — e isso freou tudo</h3>
+              <p>Quando parece que precisa virar influencer, a vontade some antes mesmo do primeiro vídeo.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-kicker">O mercado já existe</p>
+        <h2 class="section-title">Existe um nicho silencioso crescendo todo dia no YouTube</h2>
+        <p class="section-copy">
+          Canais de música gerados por IA estão acumulando milhões de visualizações.
+          Sem rosto. Sem voz. Sem câmera. Só consistência e o método certo.
+          O YouTube paga por visualização. A IA cria o conteúdo. Você só precisa saber como.
         </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer">Quero Começar Agora</a>
-          <a class="btn btn-secondary" href="#solucao">Ver o Que Vou Aprender</a>
-        </div>
-        <ul class="hero-points">
-          <li>Sem gravar vídeos</li>
-          <li>Sem aparecer</li>
-          <li>Sem experiência prévia</li>
-        </ul>
-      </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <div class="visual-panel">
-          <div class="screen screen-main">
-            <div class="screen-top">
-              <span></span><span></span><span></span>
+        <div class="grid-shell">
+          <div class="opportunity-grid">
+            <div class="opportunity-panel">
+              <div class="opportunity-list">
+                <div><span>01</span><p>Crescimento alimentado por volume, consistência e execução simples.</p></div>
+                <div><span>02</span><p>Produção rápida com IA, mesmo começando sem experiência técnica.</p></div>
+                <div><span>03</span><p>Monetização possível com estratégia certa, vídeos certos e frequência certa.</p></div>
+              </div>
             </div>
-            <div class="wave wave-one"></div>
-            <div class="wave wave-two"></div>
-            <div class="track-card">
-              <strong>AI Music Channel</strong>
-              <span>Shorts + videos longos</span>
+            <div class="chart-box" aria-hidden="true">
+              <div class="bar-wrap">
+                <div class="bar bar-1"></div>
+                <div class="bar-label">Canal 1</div>
+              </div>
+              <div class="bar-wrap">
+                <div class="bar bar-2"></div>
+                <div class="bar-label">Canal 2</div>
+              </div>
+              <div class="bar-wrap">
+                <div class="bar bar-3"></div>
+                <div class="bar-label">Canal 3</div>
+              </div>
+              <div class="bar-wrap">
+                <div class="bar bar-4"></div>
+                <div class="bar-label">Escala</div>
+              </div>
             </div>
           </div>
-          <div class="screen screen-side"></div>
-          <div class="floating-stat stat-one">
-            <strong>+30</strong>
-            <span>Nichos validados</span>
-          </div>
-          <div class="floating-stat stat-two">
-            <strong>100%</strong>
-            <span>Método prático</span>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="hook card">
-      <p>Você quer ganhar dinheiro na internet...</p>
-      <p>Mas não quer aparecer?</p>
-      <p>Não quer gravar vídeos... nem virar influencer?</p>
-      <p class="hook-highlight">Então isso aqui pode te interessar.</p>
-    </section>
-
     <section class="section">
-      <div class="section-heading">
-        <span class="section-tag">O problema</span>
-        <h2>Os Problemas Que Você Enfrenta</h2>
-      </div>
-      <div class="grid grid-4">
-        <article class="info-card">
-          <span class="icon">01</span>
-          <h3>Não sabe por onde começar</h3>
-          <p>Excesso de informação deixa tudo confuso e travado logo no início.</p>
-        </article>
-        <article class="info-card">
-          <span class="icon">02</span>
-          <h3>Se perde com excesso de informação</h3>
-          <p>Você consome conteúdo, mas não encontra um passo a passo simples.</p>
-        </article>
-        <article class="info-card">
-          <span class="icon">03</span>
-          <h3>Tenta métodos complicados</h3>
-          <p>Processos longos e técnicos fazem parecer impossível começar.</p>
-        </article>
-        <article class="info-card">
-          <span class="icon">04</span>
-          <h3>Desiste rápido</h3>
-          <p>Sem clareza e sem resultado, a motivação acaba antes do projeto andar.</p>
-        </article>
-      </div>
-    </section>
+      <div class="container">
+        <p class="section-kicker">O que você vai aprender</p>
+        <h2 class="section-title">O Que Você Aprende Nesse Mini Curso</h2>
 
-    <section class="section opportunity">
-      <div class="section-heading">
-        <span class="section-tag">A oportunidade</span>
-        <h2>O Mercado Já Está Acontecendo</h2>
-        <p>Hoje existem canais no YouTube que crescem todos os dias, sem mostrar o rosto e usando inteligência artificial para produzir conteúdo.</p>
-      </div>
-      <div class="grid grid-3">
-        <article class="feature-card">
-          <div class="feature-art art-growth"></div>
-          <h3>Crescem todos os dias</h3>
-          <p>Canais com consistência aumentam audiência mesmo em nichos simples.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-art art-ai"></div>
-          <h3>Usam inteligência artificial</h3>
-          <p>Ferramentas como ChatGPT e Suno aceleram criação e reduzem bloqueios.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-art art-money"></div>
-          <h3>Geram renda com vídeos simples</h3>
-          <p>Shorts e vídeos longos podem trabalhar juntos para atrair visualizações e monetização.</p>
-        </article>
-      </div>
-      <p class="opportunity-note">E você pode fazer o mesmo.</p>
-    </section>
-
-    <section class="section section-accent cta-break">
-      <div>
-        <span class="section-tag">Não deixe passar</span>
-        <h2>Não Deixe Essa Oportunidade Escapar!</h2>
-        <p>
-          O momento de transformar seu canal do YouTube em uma fonte de renda passiva é agora. Tenha acesso imediato a um método comprovado que utiliza IA para criar vídeos de música sem que você precise aparecer.
-        </p>
-      </div>
-      <a class="btn btn-primary" href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer">Começar Agora</a>
-    </section>
-
-    <section class="section" id="solucao">
-      <div class="section-heading">
-        <span class="section-tag">A solução</span>
-        <h2>O Que Você Vai Aprender Nesse Mini Curso</h2>
-      </div>
-      <div class="grid grid-2 lesson-grid">
-        <article class="lesson-card">
-          <span>01</span>
-          <h3>Como validar nichos que viralizam</h3>
-          <p>Descubra demandas reais antes de produzir para entrar com mais segurança.</p>
-        </article>
-        <article class="lesson-card">
-          <span>02</span>
-          <h3>Como criar músicas com IA</h3>
-          <p>Use ChatGPT e Suno para gerar letras, ideias e músicas com rapidez.</p>
-        </article>
-        <article class="lesson-card">
-          <span>03</span>
-          <h3>Como transformar em vídeos</h3>
-          <p>Monte vídeos no CapCut com visual profissional sem complicação.</p>
-        </article>
-        <article class="lesson-card">
-          <span>04</span>
-          <h3>Como postar com estratégia</h3>
-          <p>Publique com intenção para aumentar alcance e consistência.</p>
-        </article>
-        <article class="lesson-card">
-          <span>05</span>
-          <h3>Como crescer com Shorts + vídeos longos</h3>
-          <p>Combine formatos para acelerar distribuição e aumentar descoberta.</p>
-        </article>
-        <article class="lesson-card">
-          <span>06</span>
-          <h3>Como monetizar e escalar</h3>
-          <p>Transforme o método em uma máquina de conteúdo com potencial de renda.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="audience-grid">
-        <div>
-          <div class="section-heading">
-            <span class="section-tag">Para quem é</span>
-            <h2>Esse Método É Ideal Para</h2>
-          </div>
-          <div class="grid grid-2 compact-grid">
-            <article class="mini-card">
-              <h3>Quem quer renda extra</h3>
-              <p>Uma alternativa digital para complementar a renda.</p>
+        <div class="grid-shell">
+          <div class="lesson-grid">
+            <article class="card lesson-card">
+              <span class="lesson-index">MÓDULO 01</span>
+              <h3>Como escolher nicho que já tem demanda — sem precisar testar no escuro</h3>
+              <p>Você entra com direção desde o início e evita perder semanas em ideias fracas.</p>
             </article>
-            <article class="mini-card">
-              <h3>Quem quer trabalhar online</h3>
-              <p>Liberdade para criar de qualquer lugar com internet.</p>
+            <article class="card lesson-card">
+              <span class="lesson-index">MÓDULO 02</span>
+              <h3>Como criar músicas completas com IA em menos de 10 minutos</h3>
+              <p>Transforme ideias em material pronto para publicar com muito menos atrito.</p>
             </article>
-            <article class="mini-card">
-              <h3>Quem não quer aparecer</h3>
-              <p>Você pode produzir sem mostrar rosto ou voz.</p>
+            <article class="card lesson-card">
+              <span class="lesson-index">MÓDULO 03</span>
+              <h3>Como transformar áudio em vídeo com visual profissional no CapCut</h3>
+              <p>Dê aparência de conteúdo bem produzido sem depender de editor ou designer.</p>
             </article>
-            <article class="mini-card">
-              <h3>Iniciantes</h3>
-              <p>Método pensado para quem está saindo do zero.</p>
+            <article class="card lesson-card">
+              <span class="lesson-index">MÓDULO 04</span>
+              <h3>Como postar com estratégia para o algoritmo distribuir seu conteúdo</h3>
+              <p>Você para de publicar no escuro e começa a pensar como canal que quer crescer.</p>
             </article>
-          </div>
-        </div>
-
-        <div class="not-for">
-          <div class="section-heading">
-            <span class="section-tag">Para quem não é</span>
-            <h2>Esse Método Não Combina Com</h2>
-          </div>
-          <div class="alert-card">
-            <strong>Atenção:</strong> este conteúdo não é para quem busca atalhos sem execução.
-          </div>
-          <div class="grid grid-3">
-            <article class="plain-card">
-              <h3>Quem procura dinheiro fácil sem fazer nada</h3>
-              <p>Existe método, mas ele exige ação consistente.</p>
+            <article class="card lesson-card">
+              <span class="lesson-index">MÓDULO 05</span>
+              <h3>Como usar Shorts + vídeos longos juntos para crescer mais rápido</h3>
+              <p>Crie uma esteira simples para atrair audiência e sustentar visualização ao longo do tempo.</p>
             </article>
-            <article class="plain-card">
-              <h3>Quem não quer executar</h3>
-              <p>O resultado aparece quando você aplica o passo a passo.</p>
-            </article>
-            <article class="plain-card">
-              <h3>Quem desiste rápido</h3>
-              <p>Comprometimento é o que transforma teste em renda real.</p>
+            <article class="card lesson-card">
+              <span class="lesson-index">MÓDULO 06</span>
+              <h3>Como ativar monetização e escalar o canal no piloto automático</h3>
+              <p>Entenda como transformar rotina de postagem em ativo digital com potencial real de renda.</p>
             </article>
           </div>
         </div>
@@ -229,76 +867,123 @@
     </section>
 
     <section class="section">
-      <div class="section-heading section-heading-wide">
-        <span class="section-tag">Bônus</span>
-        <h2>Você Também Recebe</h2>
-      </div>
-      <div class="grid grid-5 bonus-grid">
-        <article class="bonus-card">
-          <span class="bonus-icon">+</span>
-          <h3>Pack de prompts prontos</h3>
-          <p>Templates testados para usar no ChatGPT.</p>
-        </article>
-        <article class="bonus-card">
-          <span class="bonus-icon">+</span>
-          <h3>30 nichos validados</h3>
-          <p>Temas com alta demanda para YouTube.</p>
-        </article>
-        <article class="bonus-card">
-          <span class="bonus-icon">+</span>
-          <h3>Templates de thumbnail</h3>
-          <p>Designs para acelerar sua producao visual.</p>
-        </article>
-        <article class="bonus-card">
-          <span class="bonus-icon">+</span>
-          <h3>Checklist de execucao</h3>
-          <p>Passo a passo objetivo para nao se perder.</p>
-        </article>
-        <article class="bonus-card">
-          <span class="bonus-icon">+</span>
-          <h3>Plano de 7 dias</h3>
-          <p>Estrategia resumida para comecar com foco.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section offer-section" id="oferta">
-      <div class="offer-box">
-        <div class="section-heading section-heading-wide">
-          <span class="section-tag">Oferta</span>
-          <h2>Acesso Completo ao Mini Curso</h2>
-          <p>Receba o conteúdo principal e todos os bônus para sair do zero com um plano claro de execução.</p>
-        </div>
-
-        <div class="offer-stats">
-          <div>
-            <strong>1</strong>
-            <span>Módulo completo</span>
+      <div class="container">
+        <div class="audience-layout">
+          <div class="stack">
+            <div class="stack-head">
+              <p class="section-kicker">Para quem é</p>
+              <h2 class="stack-title">Esse Método É Para Você</h2>
+            </div>
+            <div class="stack-grid">
+              <article class="card">
+                <h3>Quer renda extra sem depender de aparecer</h3>
+                <p>Ideal para quem quer um modelo online mais discreto e escalável.</p>
+              </article>
+              <article class="card">
+                <h3>Quer trabalhar com internet, mas sem complicação</h3>
+                <p>Você não precisa dominar edição avançada, gravação ou produção musical tradicional.</p>
+              </article>
+              <article class="card">
+                <h3>Está começando do zero</h3>
+                <p>O mini curso foi estruturado para encurtar o caminho e dar direção prática.</p>
+              </article>
+            </div>
           </div>
-          <div>
-            <strong>10+</strong>
-            <span>Aulas práticas</span>
-          </div>
-          <div>
-            <strong>100%</strong>
-            <span>Foco em execução</span>
-          </div>
-        </div>
 
-        <div class="offer-includes">
-          <p>Acesso completo ao mini curso</p>
-          <p>Todos os bônus inclusos</p>
-        </div>
-
-        <div class="urgency-box">
-          <div>
-            <h3>Esse conteúdo pode sair do ar a qualquer momento.</h3>
-            <p>E o valor pode aumentar.</p>
+          <div class="stack">
+            <div class="stack-head">
+              <p class="section-kicker">Para quem não é</p>
+              <h2 class="stack-title">Esse Método Não É Para</h2>
+            </div>
+            <div class="stack-grid">
+              <article class="card">
+                <h3>Quem quer dinheiro fácil sem executar</h3>
+                <p>Existe método, mas ele só funciona para quem aplica.</p>
+              </article>
+              <article class="card">
+                <h3>Quem desiste na primeira dificuldade</h3>
+                <p>Você não precisa ser expert, mas precisa estar disposto a seguir o plano.</p>
+              </article>
+              <article class="card">
+                <h3>Quem procura fórmula mágica</h3>
+                <p>A proposta aqui é construir um canal simples, escalável e com lógica de crescimento real.</p>
+              </article>
+            </div>
           </div>
-          <a class="btn btn-primary btn-large" href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer">Clique no botão abaixo e comece agora</a>
         </div>
       </div>
     </section>
-  </div>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-kicker">Bônus</p>
+        <h2 class="section-title">Você Leva Tudo Isso por R$37</h2>
+
+        <div class="grid-shell">
+          <div class="bonus-grid">
+            <article class="card bonus-card">
+              <span class="plus-icon">+</span>
+              <h3>Pack de prompts testados</h3>
+              <p>Você só copia, cola e gera sem ficar tentando descobrir o que pedir para a IA.</p>
+            </article>
+            <article class="card bonus-card">
+              <span class="plus-icon">+</span>
+              <h3>30 nichos validados</h3>
+              <p>Nichos com audiência real. Sem chute, sem desperdício e sem começar no escuro.</p>
+            </article>
+            <article class="card bonus-card">
+              <span class="plus-icon">+</span>
+              <h3>Templates de thumbnail</h3>
+              <p>Artes prontas para personalizar em minutos e acelerar sua publicação.</p>
+            </article>
+            <article class="card bonus-card">
+              <span class="plus-icon">+</span>
+              <h3>Checklist de execução</h3>
+              <p>Seu roteiro diário para não travar nunca mais e manter consistência.</p>
+            </article>
+            <article class="card bonus-card">
+              <span class="plus-icon">+</span>
+              <h3>Plano de 7 dias</h3>
+              <p>Do zero ao primeiro vídeo publicado em uma semana com direção clara.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section offer">
+      <div class="container">
+        <div class="offer-shell">
+          <div class="offer-main">
+            <div class="offer-top">
+              <p class="section-kicker">Oferta final</p>
+              <h2 class="section-title">Acesso Completo por R$37</h2>
+              <p class="section-copy">Tudo que você precisa para sair do zero com um canal de música no YouTube usando IA.</p>
+
+              <div class="price-row">
+                <div class="price-badge">Método completo + bônus</div>
+                <div class="price-badge">Acesso imediato</div>
+                <div class="price-badge">Garantia de 7 dias</div>
+              </div>
+
+              <div class="price-box">
+                <p class="price-compare">
+                  Outros cursos de YouTube cobram R$297, R$497, R$997.<br>
+                  Esse método completo + todos os bônus: <strong style="color: var(--text);">R$37.</strong>
+                </p>
+                <div class="price-highlight">R$37</div>
+                <div class="offer-proof">Um valor de entrada para você sair da teoria e colocar seu canal no ar agora.</div>
+              </div>
+            </div>
+
+            <div class="cta-row">
+              <a class="cta-button" href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer">Garantir Meu Acesso Agora por R$37 →</a>
+              <div class="micro-badge">🔒 Pagamento seguro via Kiwify · Acesso imediato · Satisfação garantida ou devolução em 7 dias</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
