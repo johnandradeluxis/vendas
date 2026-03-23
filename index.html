@@ -235,6 +235,13 @@
       line-height: 1.7;
     }
 
+    .social-proof {
+      font-size: 12px;
+      color: rgba(240, 238, 234, 0.45);
+      margin-top: 12px;
+      letter-spacing: 0.3px;
+    }
+
     .hero-stage {
       margin-top: 14px;
       display: grid;
@@ -511,8 +518,11 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 28px;
-      height: 28px;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+      flex-shrink: 0;
       margin-bottom: 14px;
       border: 1px solid rgba(240, 192, 64, 0.28);
       border-radius: 50%;
@@ -528,6 +538,7 @@
 
     .bonus-card {
       border: 1px solid rgba(240, 192, 64, 0.18);
+      padding: 20px;
     }
 
     .offer {
@@ -620,6 +631,44 @@
       line-height: 1.6;
     }
 
+    #sticky-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #f0c040;
+      color: #080810;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 1000;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    #sticky-bar a {
+      background: #080810;
+      color: #f0c040;
+      padding: 8px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    #sticky-bar.visible {
+      transform: translateY(0);
+    }
+
+    @keyframes pulse-btn {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(240,192,64,0.5); }
+      50% { box-shadow: 0 0 0 12px rgba(240,192,64,0); }
+    }
+
     @keyframes fadeDown {
       from {
         opacity: 0;
@@ -686,6 +735,13 @@
         width: 100%;
       }
 
+      #sticky-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 16px;
+        text-align: center;
+      }
+
       .hero-actions,
       .cta-row {
         align-items: stretch;
@@ -702,6 +758,11 @@
   </style>
 </head>
 <body>
+  <div id="sticky-bar">
+    <span>Canal de música com IA — Método completo</span>
+    <a href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer">Garantir por R$37 →</a>
+  </div>
+
   <main class="page">
     <section class="hero section">
       <div class="container hero-grid">
@@ -724,6 +785,7 @@
 
           <div class="hero-actions">
             <a class="cta-button" href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer">Quero Começar por R$37 Agora →</a>
+            <p class="social-proof">🔒 Pagamento seguro · Acesso imediato · Satisfação garantida em 7 dias</p>
             <div class="hero-proof">✓ Acesso imediato &nbsp;&nbsp; ✓ Bônus inclusos &nbsp;&nbsp; ✓ Garantia de 7 dias</div>
           </div>
         </div>
@@ -977,7 +1039,7 @@
             </div>
 
             <div class="cta-row">
-              <a class="cta-button" href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer">Garantir Meu Acesso Agora por R$37 →</a>
+              <a class="cta-button" href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer" style="font-size: 18px; font-weight: 800; padding: 20px 48px; animation: pulse-btn 2s infinite;">Garantir Meu Acesso Agora por R$37 →</a>
               <div class="micro-badge">🔒 Pagamento seguro via Kiwify · Acesso imediato · Satisfação garantida ou devolução em 7 dias</div>
             </div>
           </div>
@@ -985,5 +1047,15 @@
       </div>
     </section>
   </main>
+  <script>
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('sticky-bar');
+      if (window.scrollY > 400) {
+        bar.classList.add('visible');
+      } else {
+        bar.classList.remove('visible');
+      }
+    });
+  </script>
 </body>
 </html>
