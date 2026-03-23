@@ -27,6 +27,7 @@ body {
     linear-gradient(180deg, #fff8f5 0%, var(--bg) 45%, #fff7f2 100%);
   color: var(--text);
   font-family: "Manrope", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -51,7 +52,11 @@ a {
   grid-template-columns: 1.05fr 0.95fr;
   gap: 28px;
   align-items: center;
-  min-height: 86vh;
+  min-height: 78vh;
+}
+
+.hero-copy {
+  max-width: 640px;
 }
 
 .eyebrow,
@@ -114,6 +119,7 @@ a {
   padding: 0 24px;
   border-radius: 14px;
   font-weight: 800;
+  text-align: center;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
@@ -343,6 +349,13 @@ a {
 .section h2 {
   font-size: clamp(2rem, 4vw, 3.3rem);
   max-width: 14ch;
+  text-wrap: balance;
+}
+
+.section-heading-wide h2,
+.cta-break h2,
+.not-for h2 {
+  max-width: 18ch;
 }
 
 .grid {
@@ -398,6 +411,7 @@ a {
 .urgency-box h3 {
   margin: 0 0 10px;
   font-size: 1.12rem;
+  overflow-wrap: anywhere;
 }
 
 .opportunity {
@@ -580,6 +594,13 @@ a {
   }
 
   .hero h1 {
+    max-width: none;
+  }
+
+  .section h2,
+  .section-heading-wide h2,
+  .cta-break h2,
+  .not-for h2 {
     max-width: none;
   }
 
