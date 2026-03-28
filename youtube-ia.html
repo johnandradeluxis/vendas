@@ -1,0 +1,1228 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Seu Canal de Música no YouTube — Criado por IA, Monetizado por Você</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '4130829990566064');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=4130829990566064&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+  <meta name="description" content="Aprenda a criar um canal de música no YouTube com IA, sem aparecer, sem gravar e sem estúdio. Acesso imediato por R.">
+  <meta property="og:title" content="Seu Canal de MÃºsica no YouTube â€” Criado por IA, Monetizado por VocÃª">
+  <meta property="og:description" content="Sem aparecer. Sem gravar. Sem estÃºdio. SÃ³ vocÃª, a IA e o mÃ©todo certo. R$37.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vendas-rho-three.vercel.app/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
+  <style>
+    :root {
+      --bg: #080810;
+      --bg-soft: #0e0e1a;
+      --panel: #12121f;
+      --line: rgba(240, 192, 64, 0.16);
+      --line-strong: rgba(240, 192, 64, 0.34);
+      --gold: #f0c040;
+      --orange: #ff6b35;
+      --text: #f0eeea;
+      --muted: #7a7a8a;
+      --radius: 8px;
+      --max: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      padding: 100px 24px;
+    }
+
+    .section:not(.hero) {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 900px;
+    }
+
+    .container {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 38px;
+      padding: 0 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: rgba(240, 192, 64, 0.06);
+      color: var(--text);
+      font-family: "Space Mono", monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      animation: fadeDown 0.7s ease both;
+      will-change: transform, opacity;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 rgba(240, 192, 64, 0.6);
+      animation: pulse 1.8s infinite;
+      will-change: transform, opacity;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      padding-bottom: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 720px;
+      height: 720px;
+      left: 50%;
+      top: 70px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(240, 192, 64, 0.22) 0%, rgba(240, 192, 64, 0.08) 28%, rgba(240, 192, 64, 0) 68%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 28px;
+      align-items: end;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+    }
+
+    .hero-copy > *:nth-child(2) {
+      animation: fadeDown 0.7s ease 0.1s both;
+    }
+
+    .hero-copy > *:nth-child(3) {
+      animation: fadeDown 0.7s ease 0.2s both;
+    }
+
+    .hero-copy > *:nth-child(4) {
+      animation: fadeDown 0.7s ease 0.3s both;
+    }
+
+    .hero-copy > *:nth-child(5) {
+      animation: fadeDown 0.7s ease 0.4s both;
+    }
+
+    .hero-title {
+      margin: 18px 0 0;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(4rem, 12vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title .line {
+      display: block;
+    }
+
+    .hero-title .line-gold {
+      color: var(--gold);
+    }
+
+    .hero-title .line-outline {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(240, 238, 234, 0.75);
+      text-stroke: 1px rgba(240, 238, 234, 0.75);
+    }
+
+    .hero-subtitle {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: var(--text);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+    }
+
+    .hero-subtitle strong {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .cta-button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 26px;
+      border: 1px solid rgba(240, 192, 64, 0.55);
+      border-radius: 8px;
+      background: linear-gradient(180deg, var(--gold), #ddab28);
+      color: #14110a;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      overflow: hidden;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      box-shadow: 0 0 0 rgba(240, 192, 64, 0);
+      will-change: transform;
+    }
+
+    .cta-button::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+      transition: left 380ms ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(240, 192, 64, 0.2);
+    }
+
+    .cta-button:hover::after {
+      left: 140%;
+    }
+
+    .hero-proof {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .social-proof {
+      font-size: 12px;
+      color: rgba(240, 238, 234, 0.45);
+      margin-top: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-stage {
+      margin-top: 14px;
+      display: grid;
+      gap: 2px;
+      padding: 2px;
+      background: rgba(240, 192, 64, 0.08);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .hero-stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2px;
+    }
+
+    .stage-card {
+      min-height: 126px;
+      padding: 18px;
+      background: var(--bg-soft);
+      border-radius: 6px;
+    }
+
+    .stage-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-family: "Space Mono", monospace;
+      font-size: 0.78rem;
+    }
+
+    .stage-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .stage-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .section-kicker {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-family: "Space Mono", monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.4rem, 8vw, 4.6rem);
+      line-height: 0.94;
+      letter-spacing: 0.03em;
+    }
+
+    .section-copy {
+      max-width: 720px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .grid-shell {
+      margin-top: 28px;
+      display: grid;
+      gap: 2px;
+      padding: 2px;
+      background: rgba(240, 192, 64, 0.08);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .pain-grid,
+    .lesson-grid,
+    .bonus-grid,
+    .audience-layout,
+    .opportunity-grid {
+      display: grid;
+      gap: 2px;
+    }
+
+    .card {
+      position: relative;
+      min-height: 100%;
+      padding: 24px;
+      background: var(--bg-soft);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .pain-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .pain-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .pain-number {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 56px;
+      line-height: 1;
+      color: rgba(240, 192, 64, 0.12);
+      pointer-events: none;
+    }
+
+    .opportunity-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: stretch;
+    }
+
+    .opportunity-panel {
+      padding: 28px;
+      background: var(--bg-soft);
+      border-radius: 6px;
+    }
+
+    .opportunity-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .opportunity-list div {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--text);
+    }
+
+    .opportunity-list span {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .chart-box {
+      position: relative;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 320px;
+      padding: 24px 20px 20px;
+      background:
+        linear-gradient(180deg, rgba(240, 192, 64, 0.04), rgba(240, 192, 64, 0)),
+        var(--panel);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .chart-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(240, 192, 64, 0.12) 1px, transparent 1px) 0 0 / 100% 25%,
+        linear-gradient(to right, rgba(240, 192, 64, 0.05) 1px, transparent 1px) 0 0 / 25% 100%;
+      pointer-events: none;
+    }
+
+    .bar-wrap {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: end;
+      gap: 12px;
+      height: 100%;
+    }
+
+    .bar {
+      width: 100%;
+      max-width: 54px;
+      border-radius: 6px 6px 0 0;
+      transform-origin: bottom;
+      animation: growBar 1.2s ease both;
+      background: linear-gradient(180deg, var(--gold), var(--orange));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      will-change: transform;
+    }
+
+    .bar-1 { height: 34%; animation-delay: 0.05s; }
+    .bar-2 { height: 49%; animation-delay: 0.12s; }
+    .bar-3 { height: 66%; animation-delay: 0.19s; }
+    .bar-4 { height: 88%; animation-delay: 0.26s; }
+
+    .bar-label {
+      color: var(--muted);
+      font-family: "Space Mono", monospace;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+    }
+
+    .lesson-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lesson-card {
+      border-left: 2px solid rgba(240, 192, 64, 0.4);
+    }
+
+    .lesson-index,
+    .plus-icon,
+    .price-badge,
+    .micro-badge {
+      font-family: "Space Mono", monospace;
+    }
+
+    .lesson-index {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 0.82rem;
+    }
+
+    .audience-layout {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stack {
+      display: grid;
+      gap: 2px;
+      padding: 2px;
+      background: rgba(240, 192, 64, 0.08);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .stack-head {
+      padding: 24px 24px 12px;
+      background: var(--bg-soft);
+      border-radius: 6px 6px 0 0;
+    }
+
+    .stack-title {
+      margin: 0;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      letter-spacing: 0.03em;
+    }
+
+    .stack-grid {
+      display: grid;
+      gap: 2px;
+    }
+
+    .plus-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+      flex-shrink: 0;
+      margin-bottom: 14px;
+      border: 1px solid rgba(240, 192, 64, 0.28);
+      border-radius: 50%;
+      color: var(--gold);
+      background: rgba(240, 192, 64, 0.06);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .bonus-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .bonus-card {
+      border: 1px solid rgba(240, 192, 64, 0.18);
+      padding: 20px;
+    }
+
+    .offer {
+      background: #0a0a14;
+    }
+
+    .offer-shell {
+      display: grid;
+      gap: 2px;
+      padding: 2px;
+      background: rgba(240, 192, 64, 0.12);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+    }
+
+    .offer-main {
+      padding: 30px;
+      background:
+        linear-gradient(180deg, rgba(240, 192, 64, 0.04), rgba(240, 192, 64, 0)),
+        #10101b;
+      border-radius: 6px;
+    }
+
+    .offer-top {
+      display: grid;
+      gap: 18px;
+    }
+
+    .price-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .price-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 0 14px;
+      border: 1px solid rgba(240, 192, 64, 0.34);
+      border-radius: 6px;
+      background: rgba(240, 192, 64, 0.08);
+      color: var(--gold);
+      font-size: 0.92rem;
+    }
+
+    .price-box {
+      margin-top: 6px;
+      padding: 22px;
+      border: 1px solid rgba(240, 192, 64, 0.38);
+      border-radius: 8px;
+      background: rgba(240, 192, 64, 0.05);
+    }
+
+    .price-compare {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .price-highlight {
+      margin: 14px 0 0;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(3.2rem, 10vw, 5.4rem);
+      line-height: 0.9;
+      color: var(--gold);
+      letter-spacing: 0.03em;
+    }
+
+    .offer-proof {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .cta-row {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .micro-badge {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    #sticky-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #f0c040;
+      color: #080810;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 1000;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      will-change: transform;
+    }
+
+    #sticky-bar a {
+      background: #080810;
+      color: #f0c040;
+      padding: 8px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    #sticky-bar.visible {
+      transform: translateY(0);
+    }
+
+    @keyframes pulse-btn {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(240,192,64,0.5); }
+      50% { box-shadow: 0 0 0 12px rgba(240,192,64,0); }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(240, 192, 64, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(240, 192, 64, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(240, 192, 64, 0);
+      }
+    }
+
+    @keyframes growBar {
+      from {
+        transform: scaleY(0);
+      }
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .pain-grid,
+      .bonus-grid,
+      .lesson-grid,
+      .audience-layout,
+      .opportunity-grid,
+      .hero-stage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 96px;
+      }
+
+      .section {
+        padding: 84px 20px;
+      }
+
+      .chart-box {
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 72px 16px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .hero {
+        padding-top: 82px;
+        padding-bottom: 72px;
+      }
+
+      .hero::before {
+        width: 460px;
+        height: 460px;
+        top: 40px;
+      }
+
+      .eyebrow {
+        min-height: 34px;
+        padding: 6px 12px;
+        font-size: 0.7rem;
+        line-height: 1.3;
+      }
+
+      .hero-title {
+        font-size: clamp(3.2rem, 18vw, 5.2rem);
+        line-height: 0.94;
+      }
+
+      .section-title,
+      .stack-title {
+        font-size: clamp(2.2rem, 12vw, 3.6rem);
+        line-height: 0.98;
+      }
+
+      .hero-subtitle,
+      .section-copy,
+      .card p,
+      .stage-card p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+
+      .card h3,
+      .stage-card strong {
+        font-size: 1rem;
+      }
+
+      .hero-proof,
+      .social-proof,
+      .micro-badge {
+        max-width: 100%;
+        line-height: 1.6;
+      }
+
+      .grid-shell,
+      .hero-stage,
+      .stack,
+      .offer-shell {
+        margin-top: 22px;
+      }
+
+      .cta-button {
+        width: 100%;
+      }
+
+      #sticky-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 16px;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      #sticky-bar a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-actions,
+      .cta-row {
+        align-items: stretch;
+      }
+
+      .card,
+      .offer-main,
+      .opportunity-panel,
+      .stage-card,
+      .stack-head {
+        padding: 20px;
+      }
+
+      .chart-box {
+        min-height: 220px;
+        gap: 10px;
+        padding: 18px 14px 14px;
+      }
+
+      .bar {
+        max-width: 42px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .section {
+        padding: 64px 14px;
+      }
+
+      .hero {
+        padding-top: 74px;
+        padding-bottom: 64px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 17vw, 4.4rem);
+      }
+
+      .hero-subtitle {
+        font-size: 0.92rem;
+      }
+
+      .section-title,
+      .stack-title {
+        font-size: clamp(2rem, 11vw, 3rem);
+      }
+
+      .price-highlight {
+        font-size: clamp(2.8rem, 16vw, 4.2rem);
+      }
+
+      .price-box,
+      .offer-main,
+      .opportunity-panel,
+      .card,
+      .stage-card,
+      .stack-head {
+        padding: 18px;
+      }
+
+      .cta-button {
+        min-height: 56px;
+        padding: 18px 20px !important;
+        font-size: 0.98rem !important;
+      }
+
+      .chart-box {
+        min-height: 200px;
+      }
+
+      .bar-label,
+      .section-kicker,
+      .lesson-index,
+      .stage-label {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="sticky-bar">
+    <span>Canal de mÃºsica com IA â€” MÃ©todo completo</span>
+    <a href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer">Garantir por R$37 â†’</a>
+  </div>
+
+  <main class="page">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span>MÃ©todo Validado Â· IA + YouTube</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="line">Seu Canal de MÃºsica</span>
+            <span class="line line-gold">no YouTube</span>
+            <span class="line line-outline">Criado por IA, Monetizado por VocÃª</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Sem aparecer. Sem gravar. Sem estÃºdio. SÃ³ vocÃª, a IA e o mÃ©todo certo.
+            <strong>R$37 â€” menos que um delivery.</strong>
+          </p>
+
+          <div class="hero-actions">
+            <a class="cta-button" href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer">Quero ComeÃ§ar por R$37 Agora â†’</a>
+            <p class="social-proof">ðŸ”’ Pagamento seguro Â· Acesso imediato Â· SatisfaÃ§Ã£o garantida em 7 dias</p>
+            <div class="hero-proof">âœ“ Acesso imediato &nbsp;&nbsp; âœ“ BÃ´nus inclusos &nbsp;&nbsp; âœ“ Garantia de 7 dias</div>
+          </div>
+        </div>
+
+        <div class="hero-stage">
+          <div class="hero-stage-grid">
+            <article class="stage-card">
+              <span class="stage-label">PASSO 01</span>
+              <strong>Escolha um nicho com demanda</strong>
+              <p>Entre mais rÃ¡pido no jogo sem desperdiÃ§ar tempo com ideias fracas.</p>
+            </article>
+            <article class="stage-card">
+              <span class="stage-label">PASSO 02</span>
+              <strong>Gere mÃºsicas com IA em minutos</strong>
+              <p>Use ferramentas simples para produzir conteÃºdo sem estÃºdio e sem voz.</p>
+            </article>
+            <article class="stage-card">
+              <span class="stage-label">PASSO 03</span>
+              <strong>Publique e escale com mÃ©todo</strong>
+              <p>Transforme consistÃªncia em visualizaÃ§Ã£o, crescimento e monetizaÃ§Ã£o.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-kicker">VocÃª jÃ¡ se sentiu assim?</p>
+        <h2 class="section-title">VocÃª jÃ¡ tentou ganhar dinheiro online e travou assim...</h2>
+
+        <div class="grid-shell">
+          <div class="pain-grid">
+            <article class="card pain-card">
+              <div class="pain-number">01</div>
+              <h3>Assistiu mil vÃ­deos grÃ¡tis e ainda nÃ£o saiu do zero</h3>
+              <p>Muito conteÃºdo solto, pouca direÃ§Ã£o e a sensaÃ§Ã£o de estar sempre comeÃ§ando de novo.</p>
+            </article>
+            <article class="card pain-card">
+              <div class="pain-number">02</div>
+              <h3>Tem ideia, mas trava na hora de executar</h3>
+              <p>VocÃª atÃ© enxerga uma oportunidade, mas nÃ£o consegue transformar isso em aÃ§Ã£o concreta.</p>
+            </article>
+            <article class="card pain-card">
+              <div class="pain-number">03</div>
+              <h3>Tentou outros mÃ©todos e sentiu que era complicado demais</h3>
+              <p>Ferramenta demais, teoria demais, promessas demais e clareza de menos.</p>
+            </article>
+            <article class="card pain-card">
+              <div class="pain-number">04</div>
+              <h3>Achou que ia precisar aparecer â€” e isso freou tudo</h3>
+              <p>Quando parece que precisa virar influencer, a vontade some antes mesmo do primeiro vÃ­deo.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-kicker">O mercado jÃ¡ existe</p>
+        <h2 class="section-title">Existe um nicho silencioso crescendo todo dia no YouTube</h2>
+        <p class="section-copy">
+          Canais de mÃºsica gerados por IA estÃ£o acumulando milhÃµes de visualizaÃ§Ãµes.
+          Sem rosto. Sem voz. Sem cÃ¢mera. SÃ³ consistÃªncia e o mÃ©todo certo.
+          O YouTube paga por visualizaÃ§Ã£o. A IA cria o conteÃºdo. VocÃª sÃ³ precisa saber como.
+        </p>
+
+        <div class="grid-shell">
+          <div class="opportunity-grid">
+            <div class="opportunity-panel">
+              <div class="opportunity-list">
+                <div><span>01</span><p>Crescimento alimentado por volume, consistÃªncia e execuÃ§Ã£o simples.</p></div>
+                <div><span>02</span><p>ProduÃ§Ã£o rÃ¡pida com IA, mesmo comeÃ§ando sem experiÃªncia tÃ©cnica.</p></div>
+                <div><span>03</span><p>MonetizaÃ§Ã£o possÃ­vel com estratÃ©gia certa, vÃ­deos certos e frequÃªncia certa.</p></div>
+              </div>
+            </div>
+            <div class="chart-box" aria-hidden="true">
+              <div class="bar-wrap">
+                <div class="bar bar-1"></div>
+                <div class="bar-label">Canal 1</div>
+              </div>
+              <div class="bar-wrap">
+                <div class="bar bar-2"></div>
+                <div class="bar-label">Canal 2</div>
+              </div>
+              <div class="bar-wrap">
+                <div class="bar bar-3"></div>
+                <div class="bar-label">Canal 3</div>
+              </div>
+              <div class="bar-wrap">
+                <div class="bar bar-4"></div>
+                <div class="bar-label">Escala</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-kicker">O que vocÃª vai aprender</p>
+        <h2 class="section-title">O Que VocÃª Aprende Nesse Mini Curso</h2>
+
+        <div class="grid-shell">
+          <div class="lesson-grid">
+            <article class="card lesson-card">
+              <span class="lesson-index">MÃ“DULO 01</span>
+              <h3>Como escolher nicho que jÃ¡ tem demanda â€” sem precisar testar no escuro</h3>
+              <p>VocÃª entra com direÃ§Ã£o desde o inÃ­cio e evita perder semanas em ideias fracas.</p>
+            </article>
+            <article class="card lesson-card">
+              <span class="lesson-index">MÃ“DULO 02</span>
+              <h3>Como criar mÃºsicas completas com IA em menos de 10 minutos</h3>
+              <p>Transforme ideias em material pronto para publicar com muito menos atrito.</p>
+            </article>
+            <article class="card lesson-card">
+              <span class="lesson-index">MÃ“DULO 03</span>
+              <h3>Como transformar Ã¡udio em vÃ­deo com visual profissional no CapCut</h3>
+              <p>DÃª aparÃªncia de conteÃºdo bem produzido sem depender de editor ou designer.</p>
+            </article>
+            <article class="card lesson-card">
+              <span class="lesson-index">MÃ“DULO 04</span>
+              <h3>Como postar com estratÃ©gia para o algoritmo distribuir seu conteÃºdo</h3>
+              <p>VocÃª para de publicar no escuro e comeÃ§a a pensar como canal que quer crescer.</p>
+            </article>
+            <article class="card lesson-card">
+              <span class="lesson-index">MÃ“DULO 05</span>
+              <h3>Como usar Shorts + vÃ­deos longos juntos para crescer mais rÃ¡pido</h3>
+              <p>Crie uma esteira simples para atrair audiÃªncia e sustentar visualizaÃ§Ã£o ao longo do tempo.</p>
+            </article>
+            <article class="card lesson-card">
+              <span class="lesson-index">MÃ“DULO 06</span>
+              <h3>Como ativar monetizaÃ§Ã£o e escalar o canal no piloto automÃ¡tico</h3>
+              <p>Entenda como transformar rotina de postagem em ativo digital com potencial real de renda.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="audience-layout">
+          <div class="stack">
+            <div class="stack-head">
+              <p class="section-kicker">Para quem Ã©</p>
+              <h2 class="stack-title">Esse MÃ©todo Ã‰ Para VocÃª</h2>
+            </div>
+            <div class="stack-grid">
+              <article class="card">
+                <h3>Quer renda extra sem depender de aparecer</h3>
+                <p>Ideal para quem quer um modelo online mais discreto e escalÃ¡vel.</p>
+              </article>
+              <article class="card">
+                <h3>Quer trabalhar com internet, mas sem complicaÃ§Ã£o</h3>
+                <p>VocÃª nÃ£o precisa dominar ediÃ§Ã£o avanÃ§ada, gravaÃ§Ã£o ou produÃ§Ã£o musical tradicional.</p>
+              </article>
+              <article class="card">
+                <h3>EstÃ¡ comeÃ§ando do zero</h3>
+                <p>O mini curso foi estruturado para encurtar o caminho e dar direÃ§Ã£o prÃ¡tica.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="stack-head">
+              <p class="section-kicker">Para quem nÃ£o Ã©</p>
+              <h2 class="stack-title">Esse MÃ©todo NÃ£o Ã‰ Para</h2>
+            </div>
+            <div class="stack-grid">
+              <article class="card">
+                <h3>Quem quer dinheiro fÃ¡cil sem executar</h3>
+                <p>Existe mÃ©todo, mas ele sÃ³ funciona para quem aplica.</p>
+              </article>
+              <article class="card">
+                <h3>Quem desiste na primeira dificuldade</h3>
+                <p>VocÃª nÃ£o precisa ser expert, mas precisa estar disposto a seguir o plano.</p>
+              </article>
+              <article class="card">
+                <h3>Quem procura fÃ³rmula mÃ¡gica</h3>
+                <p>A proposta aqui Ã© construir um canal simples, escalÃ¡vel e com lÃ³gica de crescimento real.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-kicker">BÃ´nus</p>
+        <h2 class="section-title">VocÃª Leva Tudo Isso por R$37</h2>
+
+        <div class="grid-shell">
+          <div class="bonus-grid">
+            <article class="card bonus-card">
+              <span class="plus-icon">+</span>
+              <h3>Pack de prompts testados</h3>
+              <p>VocÃª sÃ³ copia, cola e gera sem ficar tentando descobrir o que pedir para a IA.</p>
+            </article>
+            <article class="card bonus-card">
+              <span class="plus-icon">+</span>
+              <h3>30 nichos validados</h3>
+              <p>Nichos com audiÃªncia real. Sem chute, sem desperdÃ­cio e sem comeÃ§ar no escuro.</p>
+            </article>
+            <article class="card bonus-card">
+              <span class="plus-icon">+</span>
+              <h3>Templates de thumbnail</h3>
+              <p>Artes prontas para personalizar em minutos e acelerar sua publicaÃ§Ã£o.</p>
+            </article>
+            <article class="card bonus-card">
+              <span class="plus-icon">+</span>
+              <h3>Checklist de execuÃ§Ã£o</h3>
+              <p>Seu roteiro diÃ¡rio para nÃ£o travar nunca mais e manter consistÃªncia.</p>
+            </article>
+            <article class="card bonus-card">
+              <span class="plus-icon">+</span>
+              <h3>Plano de 7 dias</h3>
+              <p>Do zero ao primeiro vÃ­deo publicado em uma semana com direÃ§Ã£o clara.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section offer">
+      <div class="container">
+        <div class="offer-shell">
+          <div class="offer-main">
+            <div class="offer-top">
+              <p class="section-kicker">Oferta final</p>
+              <h2 class="section-title">Acesso Completo por R$37</h2>
+              <p class="section-copy">Tudo que vocÃª precisa para sair do zero com um canal de mÃºsica no YouTube usando IA.</p>
+
+              <div class="price-row">
+                <div class="price-badge">MÃ©todo completo + bÃ´nus</div>
+                <div class="price-badge">Acesso imediato</div>
+                <div class="price-badge">Garantia de 7 dias</div>
+              </div>
+
+              <div class="price-box">
+                <p class="price-compare">
+                  Outros cursos de YouTube cobram R$297, R$497, R$997.<br>
+                  Esse mÃ©todo completo + todos os bÃ´nus: <strong style="color: var(--text);">R$37.</strong>
+                </p>
+                <div class="price-highlight">R$37</div>
+                <div class="offer-proof">Um valor de entrada para vocÃª sair da teoria e colocar seu canal no ar agora.</div>
+              </div>
+            </div>
+
+            <div class="cta-row">
+              <a class="cta-button" href="https://pay.kiwify.com.br/JuglQmA" target="_blank" rel="noopener noreferrer" style="font-size: 18px; font-weight: 800; padding: 20px 48px; animation: pulse-btn 2s infinite;">Garantir Meu Acesso Agora por R$37 â†’</a>
+              <div class="micro-badge">ðŸ”’ Pagamento seguro via Kiwify Â· Acesso imediato Â· SatisfaÃ§Ã£o garantida ou devoluÃ§Ã£o em 7 dias</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const bar = document.getElementById('sticky-bar');
+      let ticking = false;
+
+      const updateStickyBar = () => {
+        bar.classList.toggle('visible', window.scrollY > 400);
+        ticking = false;
+      };
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateStickyBar);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateStickyBar();
+    })();
+  </script>
+</body>
+</html>
